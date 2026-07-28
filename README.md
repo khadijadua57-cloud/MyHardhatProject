@@ -1,57 +1,43 @@
-# Sample Hardhat 3 Project (`mocha` and `ethers`)
+# MyHardhatProject - Blockchain Development Portfolio
 
-This project showcases a Hardhat 3 project using `mocha` for tests and the `ethers` library for Ethereum interactions.
+This repository contains my blockchain development labs and smart contract projects built using Solidity, Hardhat, and Ethereum development tools.
 
-To learn more about Hardhat 3, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3](https://hardhat.org/hardhat3-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+## Tokens & NFTs
 
-## Project Overview
+- **MyToken (ERC-20 Token)** - Created a custom ERC-20 token with minting and transfer functionality.
+- **MyNFT (ERC-721 NFT)** - Developed an NFT smart contract for creating and managing unique digital assets.
 
-This example project includes:
+## DeFi Projects
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using `mocha` and ethers.js
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+- **FundMe Contract** - Built a decentralized funding contract that allows users to send ETH and withdraw funds securely.
+- **Staking Pool** - Implemented a staking system where users can stake tokens and earn rewards.
 
-## Usage
+## Governance
 
-### Running Tests
+- **DAO Voting System** - Developed a decentralized voting contract where users can create proposals and participate in governance decisions.
 
-To run all the tests in the project, execute the following command:
+## Security
 
-```shell
-npx hardhat test
-```
+- **SecureVault** - Created a secure ETH storage contract with access control mechanisms.
+- **VulnerableVault & Attack Contracts** - Studied smart contract vulnerabilities and demonstrated attack scenarios.
 
-You can also selectively run the Solidity or `mocha` tests:
+## Oracles
 
-```shell
-npx hardhat test solidity
-npx hardhat test mocha
-```
+- **Mock Oracle System** - Built an oracle simulation to provide external data to smart contracts.
+- **Data Consumer Contract** - Implemented a contract that consumes oracle-provided data.
 
-### Make a deployment to Sepolia
+## Decentralized Storage
 
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
+- **IPFS Integration** - Implemented uploading and retrieving files using IPFS with blockchain references.
 
-To run the deployment to a local chain:
+## Technologies Used
 
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
-```
+- Solidity
+- Hardhat
+- Ethereum
+- Ethers.js
+- TypeScript
+- IPFS
+- MetaMask
 
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
-
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
-
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
-
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
-```
-
-After setting the variable, you can run the deployment with the Sepolia network:
-
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+## Project Structure
