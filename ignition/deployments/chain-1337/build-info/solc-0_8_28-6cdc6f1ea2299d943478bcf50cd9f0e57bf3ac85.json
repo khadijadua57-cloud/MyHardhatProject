@@ -1,0 +1,49 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-6cdc6f1ea2299d943478bcf50cd9f0e57bf3ac85",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "compilerType": "solc",
+  "toolVersions": {
+    "hardhat": "3.9.1"
+  },
+  "userSourceNameMap": {
+    "contracts/DAOVoting.sol": "project/contracts/DAOVoting.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "paris",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.opcodes",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.immutableReferences",
+            "evm.deployedBytecode.linkReferences",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.opcodes",
+            "evm.deployedBytecode.sourceMap",
+            "evm.methodIdentifiers"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/DAOVoting.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.28;\r\n \r\ncontract DAOVoting {\r\n    struct Proposal {\r\n        string description;\r\n        uint256 yesVotes;\r\n        uint256 noVotes;\r\n        string documentCID;\r\n    }\r\n \r\n    Proposal[] public proposals;\r\n    mapping(uint256 => mapping(address => bool)) public hasVoted;\r\n \r\n    function createProposal(string memory description) public {\r\n        proposals.push(Proposal({\r\n            description: description,\r\n            yesVotes: 0,\r\n            noVotes: 0,\r\n            documentCID: \"\"\r\n        }));\r\n    }\r\n \r\n    function attachDocument(uint256 proposalId, string memory cid) public {\r\n        require(proposalId < proposals.length, \"Proposal does not exist\");\r\n        proposals[proposalId].documentCID = cid;\r\n    }\r\n \r\n    function vote(uint256 proposalId, bool support) public {\r\n        require(proposalId < proposals.length, \"Proposal does not exist\");\r\n        require(!hasVoted[proposalId][msg.sender], \"You already voted\");\r\n        hasVoted[proposalId][msg.sender] = true;\r\n        if (support) {\r\n            proposals[proposalId].yesVotes += 1;\r\n        } else {\r\n            proposals[proposalId].noVotes += 1;\r\n        }\r\n    }\r\n \r\n    function getProposal(uint256 proposalId) public view returns (\r\n        string memory description,\r\n        uint256 yesVotes,\r\n        uint256 noVotes,\r\n        string memory documentCID\r\n    ) {\r\n        Proposal memory p = proposals[proposalId];\r\n        return (p.description, p.yesVotes, p.noVotes, p.documentCID);\r\n    }\r\n \r\n    function proposalCount() public view returns (uint256) {\r\n        return proposals.length;\r\n    }\r\n}\r\n"
+      }
+    }
+  }
+}

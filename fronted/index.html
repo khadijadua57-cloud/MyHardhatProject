@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AccessControlDemo Frontend</title>
+</head>
+<body>
+  <h1>AccessControlDemo</h1>
+ 
+  <button id="connectBtn">Connect Wallet</button>
+  <p id="accountDisplay">Not connected</p>
+ 
+  <button id="loadBtn">Load Contract Info</button>
+  <p>Owner: <span id="ownerDisplay">-</span></p>
+  <p>Message: <span id="messageDisplay">-</span></p>
+ 
+  <input id="messageInput" type="text" placeholder="New message">
+  <button id="setMessageBtn">Set Message</button>
+  <p id="statusDisplay"></p>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.0/dist/ethers.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
